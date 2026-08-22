@@ -1,0 +1,35 @@
+# Deletes a PR's head branch once the PR is merged — the Actions equivalent of
+# the repo setting "Automatically delete head branches" (Settings → General →
+# Pull Requests). If that setting is ever enabled too, the two coexist: an
+# already-deleted ref is tolerated below.
+
+name: delete-merged-branch
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  delete:
+    # Merged PRs only; never fork branches, never the default branch.
+    if: >-
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref != github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete merged head branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          if gh api -X DELETE "repos/$REPO/git/refs/heads/$BRANCH"; then
+            echo "Deleted branch: $BRANCH"
+          else
+            echo "Branch $BRANCH is already gone — nothing to delete."
+          fi
