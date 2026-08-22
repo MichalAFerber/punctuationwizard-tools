@@ -2,7 +2,7 @@
 // site's landing-page cards, per-tool pages, SEO metadata, and sitemap. The
 // behavior for each tool lives in the matching features/<id>.js module (see
 // `repoPath` for exceptions), mounted client-side by the consuming site
-// (punctuationwizard.us).
+// (punctuationwizard.app).
 
 export const tools = [
   {
