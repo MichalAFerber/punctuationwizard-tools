@@ -1,7 +1,7 @@
 # punctuationwizard-tools
 
 The browser-local punctuation & typography tools behind
-[punctuationwizard.us](https://punctuationwizard.us) — free, MIT-licensed, and
+[punctuationwizard.app](https://punctuationwizard.app) — free, MIT-licensed, and
 dependency-free. Part of the wizard family alongside
 [textwizard-tools](https://github.com/MichalAFerber/textwizard-tools). Every tool
 runs entirely in the browser: no uploads, no accounts, no tracking.
@@ -34,7 +34,7 @@ runs entirely in the browser: no uploads, no accounts, no tracking.
 
 ## Used by
 
-[punctuationwizard.us](https://punctuationwizard.us) consumes this repo as a
+[punctuationwizard.app](https://punctuationwizard.app) consumes this repo as a
 package (`punctuationwizard-tools`) and supplies the page shell, styling, and
 mounting glue — including the `window.tw.toast` helper the feature modules
 call, same as the rest of the wizard family.
