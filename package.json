@@ -1,0 +1,14 @@
+{
+  "name": "punctuationwizard-tools",
+  "version": "1.0.0",
+  "description": "The browser-local punctuation & typography tools behind punctuationwizard.us — MIT-licensed, zero dependencies, no uploads.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Michal Ferber",
+  "repository": { "type": "git", "url": "https://github.com/MichalAFerber/punctuationwizard-tools.git" },
+  "exports": {
+    "./tools": "./tools.js",
+    "./features/*": "./features/*"
+  },
+  "files": ["features", "tools.js"]
+}
